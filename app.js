@@ -2,7 +2,7 @@ let boxes = document.querySelectorAll(".box");
 let resetbutton = document.querySelectorAll("#resetbutton");
 let msg = document.querySelector(".msg");
 let msgtext = document.querySelector("#Winnertext");
-
+let count = 0;
 let turnO = true;
 const winPatterns = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
 
@@ -16,7 +16,10 @@ boxes.forEach((box) => {
             turnO = true;
         }
         box.disabled = true;
-
+        count++;
+        if(count===9){
+            draw();
+        }
         checkWinner();
     });
 });
@@ -36,6 +39,11 @@ const checkWinner = () => {
     }
 }
 
+const draw = () => {
+    msgtext.innerText = "Hell nah its a Draw *crying emoji* You can't even win a simple game.";
+    msg.classList.remove("hide");
+}
+
 const showWinner = (winner) => {
     msgtext.innerText = `Awesome! Wow! Fabulous! You won against yourself ${winner} `;
     msg.classList.remove("hide");
@@ -48,6 +56,7 @@ resetbutton.forEach((btn) => {
             box.innerText="";
             msg.classList.add("hide");
             turnO = true;
+            count = 0;
         }
     });
 });
