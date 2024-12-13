@@ -17,7 +17,6 @@ main{
     flex-flow: column;
     justify-content: center;
     align-items: center;
-    height: 1082.16px;
 }
 
 
@@ -69,9 +68,10 @@ h1{
 
 .msg{
     display: flex;
-    flex-flow: column;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 1500px;
 }
 
 .hide{
